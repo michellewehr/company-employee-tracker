@@ -20,3 +20,26 @@ VALUES
 ('HR Associate', '54681', '4'),
 ('HR Analyst', '66625', '4'),
 ('Recruiter', '50430', '4');
+
+INSERT INTO managers (manager_name, department_managed)
+VALUES
+('Michelle Napolitano', 'Marketing'),
+('Danielle Welsh', 'Sales'),
+('Gabriela Anne', 'Finance'),
+('Olivia Samuels', 'Human Resources');
+
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
+VALUES 
+('Carmine','John', 1, 1),
+('Adam','Robert', 1, 1),
+('Christopher','Roy', 1, 1),
+('Noah','Paul', 2, 2),
+('Ethan','James', 2, 2),
+('Wesley','Walker', 2, 2),
+('Christian','Thomas',3, 3),
+('Julianna','Rose',3, 3),
+('Ava','Rose',3, 3),
+('Lana','Noelle',4, 3),
+('Mila','Grace',4, 4),
+('Catherine','Mary',4, 4),
+('Celinda','Kelly',4, 4);
