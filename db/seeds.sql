@@ -1,4 +1,4 @@
-INSERT INTO departments (name) 
+INSERT INTO departments (dep_name) 
 VALUES 
 ('Marketing'),
 ('Sales'),
@@ -21,12 +21,12 @@ VALUES
 ('HR Analyst', '66625', '4'),
 ('Recruiter', '50430', '4');
 
-INSERT INTO managers (manager_name, department_managed)
+INSERT INTO managers (manager_name)
 VALUES
-('Michelle Napolitano', 'Marketing'),
-('Danielle Welsh', 'Sales'),
-('Gabriela Anne', 'Finance'),
-('Olivia Samuels', 'Human Resources');
+('Michelle Napolitano'),
+('Danielle Welsh'),
+('Gabriela Anne'),
+('Olivia Samuels');
 
 INSERT INTO employees (first_name, last_name, role_id, manager_id)
 VALUES 
