@@ -23,13 +23,8 @@ CREATE TABLE roles (
 
 CREATE TABLE managers (
     id INTEGER AUTO_INCREMENT, 
-    manager_name VARCHAR(70);
-    department_managed VARCHAR(30),
-    PRIMARY KEY (id),
-    CONSTRAINT fk_department
-        FOREIGN KEY (department_managed)
-         REFERENCES departments(dep_name)
-         ON DELETE SET NULL
+    manager_name VARCHAR(70),
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE employees (
@@ -41,10 +36,10 @@ CREATE TABLE employees (
     PRIMARY KEY (id),
     CONSTRAINT fk_role
         FOREIGN KEY (role_id)
-        REFERENCES roles(id),
+        REFERENCES roles(id)
         ON DELETE SET NULL,
     CONSTRAINT fk_manager
         FOREIGN KEY(manager_id) 
         REFERENCES managers(id)
-        ON DELETE SET NULL;
+        ON DELETE SET NULL
 );
