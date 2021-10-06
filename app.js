@@ -45,7 +45,7 @@ function handleAction(data) {
     }
     else if (data.action === 'View all employees') {
         return showAllEmployees();
-    }
+    } 
 }
 
 init()

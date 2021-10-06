@@ -28,18 +28,18 @@ VALUES
 ('Gabriela Anne'),
 ('Olivia Samuels');
 
-INSERT INTO employees (first_name, last_name, role_id, manager_id)
+INSERT INTO employees (first_name, last_name, role_id, manager_id, dep_id)
 VALUES 
-('Carmine','John', 1, 1),
-('Adam','Robert', 1, 1),
-('Christopher','Roy', 1, 1),
-('Noah','Paul', 2, 2),
-('Ethan','James', 2, 2),
-('Wesley','Walker', 2, 2),
-('Christian','Thomas',3, 3),
-('Julianna','Rose',3, 3),
-('Ava','Rose',3, 3),
-('Lana','Noelle',4, 3),
-('Mila','Grace',4, 4),
-('Catherine','Mary',4, 4),
-('Celinda','Kelly',4, 4);
+('Carmine','John', 1, 1, 1),
+('Adam','Robert', 2, 1, 1),
+('Christopher','Roy', 3, 1, 1),
+('Noah','Paul', 4, 2, 2),
+('Ethan','James', 5, 2, 2),
+('Wesley','Walker', 6, 2, 2),
+('Christian','Thomas',7, 3, 3),
+('Julianna','Rose',8, 3, 3),
+('Ava','Rose',9, 3, 3),
+('Lana','Noelle',10, 3, 3),
+('Mila','Grace',11, 4, 4),
+('Catherine','Mary',12, 4, 4),
+('Celinda','Kelly',13, 4, 4);
