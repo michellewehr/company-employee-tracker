@@ -3,6 +3,7 @@ const mysql = require('mysql2');
 const cTable = require('console.table');
 const showAllDep = require('./js/departmentFunc');
 const showAllRoles = require('./js/rolesFunc');
+const showAllEmployees = require('./js/employeesFunc');
 
 
 function init() {
@@ -41,6 +42,9 @@ function handleAction(data) {
     }
     else if (data.action === 'View all roles') {
         return showAllRoles();
+    }
+    else if (data.action === 'View all employees') {
+        return showAllEmployees();
     }
 }
 
