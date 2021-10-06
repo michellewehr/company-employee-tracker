@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const cTable = require('console.table');
+const showAllDep = require('./js/departmentFunc');
+const showAllRoles = require('./js/rolesFunc');
+
 
 function init() {
     console.log(`
@@ -33,6 +36,12 @@ function startQ() {
 
 function handleAction(data) {
     console.log(data.action);
+    if (data.action === 'View all departments') {
+       return showAllDep();
+    }
+    else if (data.action === 'View all roles') {
+        return showAllRoles();
+    }
 }
 
 init()
