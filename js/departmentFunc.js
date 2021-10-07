@@ -1,7 +1,5 @@
 const db = require('../db/connection');
 
-// WHEN I choose to view all departments
-// THEN I am presented with a formatted table showing department names and department ids
 
 function showAllDep() {
     const sql = `SELECT * FROM departments`;
@@ -11,12 +9,9 @@ function showAllDep() {
             console.log(err);
             return;
         }
-        console.table(rows);
-    })
+        console.table('Departments:', rows);
+    });
 }
-
-
-
 
 
 module.exports = showAllDep;

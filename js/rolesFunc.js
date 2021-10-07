@@ -15,7 +15,7 @@ function showAllRoles() {
             console.log(err);
             return;
         }
-        console.table(rows);
+        console.table('Roles:', rows);
     })
 }
 

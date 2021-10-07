@@ -6,9 +6,11 @@ function showAllEmployees() {
 
     roles.title AS job_title,
 
-    managers.manager_name AS manager,
+    managers.manager_name AS manager, 
 
-    departments.dep_name AS department
+    departments.dep_name AS department,
+
+    roles.salary AS salary
     
     FROM employees
 
@@ -28,7 +30,7 @@ function showAllEmployees() {
             console.log(err);
             return;
         }
-        console.table(rows);
+        console.table('Employees:', rows);
     })
 }
 

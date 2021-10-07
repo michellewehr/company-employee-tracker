@@ -4,6 +4,8 @@ const cTable = require('console.table');
 const showAllDep = require('./js/departmentFunc');
 const showAllRoles = require('./js/rolesFunc');
 const showAllEmployees = require('./js/employeesFunc');
+const addDepartment = require('./js/addDep');
+const addRole = require('./js/addRole');
 
 
 function init() {
@@ -11,11 +13,8 @@ function init() {
     =========================
     ====Begin Application====
     =========================`);
-    startQ();
-}
 
-function startQ() {
-    return inquirer 
+    inquirer 
         .prompt (
         {
             type: 'list',
@@ -29,23 +28,45 @@ function startQ() {
                 'Add a role',
                 'Add an employee',
                 'Update an employee'
-            ]})
-            .then(data => {
-                handleAction(data);
+            ]}).then(data => {
+                handleAction(data)
             })
 }
 
 function handleAction(data) {
-    console.log(data.action);
-    if (data.action === 'View all departments') {
-       return showAllDep();
+    switch(data.action) {
+        case "View all departments" : 
+            showAllDep();
+            break;
+        case "View all roles":
+            showAllRoles();
+            break;
+        case "View all employees":
+            showAllEmployees();
+            break;
+        case "Add a department":
+            addDepartment();
+            break;
+        case "Add a role":
+            addRole();
+            break;
     }
-    else if (data.action === 'View all roles') {
-        return showAllRoles();
-    }
-    else if (data.action === 'View all employees') {
-        return showAllEmployees();
-    } 
+    // console.log(data.action);
+    // // if (data.action === 'View all departments') {
+    // //    return showAllDep();
+    // // }
+    // // else if (data.action === 'View all roles') {
+    // //     return showAllRoles();
+    // // }
+    // // else if (data.action === 'View all employees') {
+    // //     return showAllEmployees();
+    // // } 
+    // // else if (data.action === 'Add a department') {
+    // //     return addDepartment();
+    // // }
+    // else if (data.action === 'Add a role') {
+    //     return addRole();
+    // }
 }
 
-init()
+init();
