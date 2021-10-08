@@ -51,9 +51,10 @@ function handleAction(data) {
         case "Add a role":
             addRole();
             break;
-        // case "Add employee": 
-        //     addEmployee();
-        //     break;
+        case 'Add an employee':
+            addEmployee();
+            break;
+      
         // // case 'Exit app':
         //     console.log(`
         //     =====================

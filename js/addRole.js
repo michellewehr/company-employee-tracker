@@ -57,5 +57,5 @@ addRole = async () => {
 }
 
 module.exports = addRole;
-
+module.exports = departmentChoices;
 
