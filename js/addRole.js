@@ -2,22 +2,30 @@ const db = require('../db/connection');
 const inquirer = require('inquirer');
 const showAllRoles = require('./rolesFunc');
 const showAllDep = require('./departmentFunc');
+const promise = require('mysql2/promise');
 
-const sql = `SELECT dep_name FROM departments`;
-const choicesArr = [];
-function choices() {
-    db.query(sql, (res, rows) => {
-    for(row of rows) {
-        choicesArr.push(row.dep_name);
-    }
-    return choicesArr;
-})
+
+
+function departmentChoices() {
+    const departments = [];
+    return new Promise ((resolve, reject) => {
+        const sql = `SELECT id, dep_name FROM departments`;
+        db.query(sql, (err, res) => {
+            if(err) {
+                reject(err);
+            }
+            const responses = JSON.parse(JSON.stringify(res));
+            responses.forEach(element => {
+                departments.push(element.id + '. ' + element.dep_name);
+            }); 
+        resolve(departments);
+     })
+    })
 }
 
 
-addRole = async () => {
-  
-  const data = await inquirer.prompt([
+function addRole() {
+ return inquirer.prompt([
         {
             type: 'input',
             name: 'roleTitle', 
@@ -32,7 +40,7 @@ addRole = async () => {
             type: 'list',
             name: 'roleDep',
             message: 'Which department would you like to add this role to?',
-            choices: choices()
+            choices: departmentChoices()
         }
     ])
 

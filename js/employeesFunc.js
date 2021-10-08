@@ -1,6 +1,6 @@
 const db = require('../db/connection');
 
-function showAllEmployees() {
+showAllEmployees = async function () {
     const sql = `
     SELECT employees.id, employees.first_name, employees.last_name, 
 
@@ -26,10 +26,7 @@ function showAllEmployees() {
     `;
 
     db.query(sql, (err, rows) => {
-        if(err) {
-            console.log(err);
-            return;
-        }
+        if(err) throw err;
         console.table('Employees:', rows);
     })
 }

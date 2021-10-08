@@ -6,15 +6,14 @@ const showAllRoles = require('./js/rolesFunc');
 const showAllEmployees = require('./js/employeesFunc');
 const addDepartment = require('./js/addDep');
 const addRole = require('./js/addRole');
-
+const addEmployee = require('./js/addEmployee')
 
 function init() {
     console.log(`
     =========================
-    ====Begin Application====
     =========================`);
 
-    inquirer 
+     inquirer 
         .prompt (
         {
             type: 'list',
@@ -27,9 +26,11 @@ function init() {
                 'Add a department',
                 'Add a role',
                 'Add an employee',
-                'Update an employee'
-            ]}).then(data => {
-                handleAction(data)
+                'Update an employee',
+                'Exit app'
+            ]})
+            .then(data => {
+                handleAction(data);
             })
 }
 
@@ -50,23 +51,18 @@ function handleAction(data) {
         case "Add a role":
             addRole();
             break;
+        // case "Add employee": 
+        //     addEmployee();
+        //     break;
+        // // case 'Exit app':
+        //     console.log(`
+        //     =====================
+        //     ====App Exited=========
+        //     =====================`);
+        //     return;
     }
-    // console.log(data.action);
-    // // if (data.action === 'View all departments') {
-    // //    return showAllDep();
-    // // }
-    // // else if (data.action === 'View all roles') {
-    // //     return showAllRoles();
-    // // }
-    // // else if (data.action === 'View all employees') {
-    // //     return showAllEmployees();
-    // // } 
-    // // else if (data.action === 'Add a department') {
-    // //     return addDepartment();
-    // // }
-    // else if (data.action === 'Add a role') {
-    //     return addRole();
-    // }
 }
 
 init();
+
+module.exports = init;
