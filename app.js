@@ -7,6 +7,7 @@ const showAllEmployees = require('./js/employeesFunc');
 const addDepartment = require('./js/addDep');
 const addRole = require('./js/addRole');
 const addEmployee = require('./js/addEmployee')
+const updateEmployee = require('./js/updateEmployee');
 
 function init() {
     console.log(`
@@ -54,7 +55,8 @@ function handleAction(data) {
         case 'Add an employee':
             addEmployee();
             break;
-      
+        case 'Update an employee':
+            updateEmployee();
         // // case 'Exit app':
         //     console.log(`
         //     =====================

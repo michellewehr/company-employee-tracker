@@ -90,3 +90,4 @@ addEmployee = async () => {
 }
 
 module.exports = addEmployee;
+module.exports = roleChoices;
