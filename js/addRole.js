@@ -14,7 +14,7 @@ function departmentChoices() {
             if(err) {
                 reject(err);
             }
-            const responses = JSON.parse(JSON.stringify(res));
+            let responses = JSON.parse(JSON.stringify(res));
             responses.forEach(element => {
                 departments.push(element.id + '. ' + element.dep_name);
             }); 
@@ -23,9 +23,18 @@ function departmentChoices() {
     })
 }
 
+function addToDepTable(title, salary, depId) {
+    const sql = `INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)`;
+    const params = [title, salary, depId]
+    db.query(sql, params, (err, result) => {
+        if(err) throw err;
+        console.log('Role added to roles table.')
+        showAllRoles();
+    } )
+}
 
-function addRole() {
- return inquirer.prompt([
+addRole = async () => {
+ const roleRes = await inquirer.prompt([
         {
             type: 'input',
             name: 'roleTitle', 
@@ -40,10 +49,13 @@ function addRole() {
             type: 'list',
             name: 'roleDep',
             message: 'Which department would you like to add this role to?',
-            choices: departmentChoices()
+            choices: await departmentChoices()
         }
     ])
-
+    const depId = roleRes.roleDep.charAt(0);
+    addToDepTable(roleRes.roleTitle, roleRes.roleSalary, depId);
 }
 
 module.exports = addRole;
+
+
