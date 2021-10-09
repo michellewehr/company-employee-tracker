@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const chalk = require('chalk')
 const mysql = require('mysql2');
 const cTable = require('console.table');
 const showAllDep = require('./js/departmentFunc');
@@ -7,15 +8,23 @@ const showAllEmployees = require('./js/employeesFunc');
 const addDepartment = require('./js/addDep');
 const { addRole } = require('./js/addRole');
 const { addEmployee } = require('./js/addEmployee');
-// const addEmployee = require('./js/addEmployee')
 const updateEmployee = require('./js/updateEmployee');
 const db = require('./db/connection');
 
-function init() {
-    console.log(`
-    =========================
-    =========================`);
+db.connect(err => {
+    if(err) throw err;
+    init();
+})
 
+function init() {
+    console.log(chalk.cyan(`
+    ==============================
+    ======Employee Tracker========
+    ==============================`));
+    promptUser();
+}
+
+function promptUser() {
      inquirer 
         .prompt (
         {
@@ -30,6 +39,7 @@ function init() {
                 'Add a role',
                 'Add an employee',
                 'Update an employee',
+                // 'Update employee manager',
                 'Exit app'
             ]})
             .then(data => {
@@ -59,16 +69,18 @@ function handleAction(data) {
             break;
         case 'Update an employee':
             updateEmployee();
+            break;
         case 'Exit app':
-            console.log(`
-            =====================
-            ====App Exited=========
-            =====================`);
+            console.log(chalk.cyan(`
+            ========================
+            ====Exiting App=========
+            ========================`));
             db.end();
             break;
     }
 }
 
-init();
+
+// init();
 
 module.exports = init;

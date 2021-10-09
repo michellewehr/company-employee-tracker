@@ -89,7 +89,4 @@ addEmployee = async () => {
     addToEmpTable(employeeRes.empFirst, employeeRes.empLast, roleId, managerId, depId);
 }
 
-// module.exports = addEmployee;
-// module.exports = roleChoices;
-
 module.exports = { addEmployee, roleChoices };

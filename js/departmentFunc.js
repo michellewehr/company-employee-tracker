@@ -1,7 +1,6 @@
 const init = require('../app');
 const db = require('../db/connection');
 
-
 function showAllDep() {
     const sql = `SELECT * FROM departments`;
    
@@ -12,6 +11,7 @@ function showAllDep() {
         }
         console.table('Departments:', rows);
     });
+    init();
 }
 
 

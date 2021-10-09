@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/michellewehr/company-employee-tracker#readme",
   "dependencies": {
+    "chalk": "^4.1.2",
     "console.table": "^0.10.0",
     "inquirer": "^8.1.5",
     "install": "^0.13.0",
