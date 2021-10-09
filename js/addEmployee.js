@@ -47,8 +47,7 @@ function addToEmpTable(first, last, role, manager, department) {
             console.log(err);
             return;
         }
-        console.log(first + ' ' + last + 'added to employees table.');
-        promptUser();
+        console.log(first + ' ' + last + ' added to employees table.');
         // showAllEmployees();
     })
 }

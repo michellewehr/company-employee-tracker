@@ -1,13 +1,13 @@
 const db = require('../db/connection');
 const inquirer = require('inquirer');
-const promptUser = require('../app');
-const hello = require('../app');
+// const promptUser = require('../app');
 // const showAllRoles = require('./rolesFunc');
 // const showAllDep = require('./departmentFunc');
-// const promise = require('mysql2/promise');
+const promise = require('mysql2/promise');
+const showAllRoles = require('./rolesFunc');
+const promptUser = require('../app');
 
-
-
+//Get department choices for the inquirer prompt in addRole function
 function departmentChoices() {
     const departments = [];
     return new Promise ((resolve, reject) => {
@@ -25,16 +25,19 @@ function departmentChoices() {
 })
 }
 
-function addToDepTable(title, salary, depId) {
+//adding the users input into the database
+addToRolesTable = async (title, salary, depId) => {
     const sql = `INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)`;
     const params = [title, salary, depId]
     db.query(sql, params, (err, result) => {
         if(err) throw err;
         console.log('Role added to roles table.');
+        // showAllRoles();
         promptUser();
     })
 }
 
+//add Role function to get user input about role to add
 addRole = async () => {
  const roleRes = await inquirer.prompt([
         {
@@ -55,9 +58,9 @@ addRole = async () => {
         }
     ])
     const depId = roleRes.roleDep.charAt(0);
-    addToDepTable(roleRes.roleTitle, roleRes.roleSalary, depId);
+    addToRolesTable(roleRes.roleTitle, roleRes.roleSalary, depId);
 }
 
 
-module.exports = { addRole, departmentChoices}; 
+module.exports = { addRole, departmentChoices }; 
 

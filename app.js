@@ -24,7 +24,7 @@ function init() {
 }
 
 function promptUser() {
-    inquirer 
+    return inquirer 
         .prompt (
         {
             type: 'list',
@@ -102,4 +102,4 @@ function handleAction(data) {
 
 init();
 
-// module.exports = promptUser;
+module.exports = handleAction;
