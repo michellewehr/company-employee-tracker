@@ -23,8 +23,8 @@ function init() {
     promptUser();
 }
 
-promptUser = async () => {
-    const data = await inquirer 
+function promptUser() {
+    inquirer 
         .prompt (
         {
             type: 'list',
@@ -46,10 +46,10 @@ promptUser = async () => {
                 'Delete employee',
                 'Exit app'
             ]})
-           handleAction(data);
+           .then(data => handleAction(data));
 }
 
-handleAction = async (data) => { 
+function handleAction(data) { 
     switch(data.action) {
         case "View all departments" : 
             showAllDep();
@@ -101,4 +101,5 @@ handleAction = async (data) => {
 }
 
 init();
-module.exports = promptUser;
+
+// module.exports = promptUser;

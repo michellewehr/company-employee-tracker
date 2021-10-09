@@ -1,6 +1,7 @@
 const db = require('../db/connection');
 const inquirer = require('inquirer');
 const promptUser = require('../app');
+const hello = require('../app');
 // const showAllRoles = require('./rolesFunc');
 // const showAllDep = require('./departmentFunc');
 // const promise = require('mysql2/promise');
@@ -21,7 +22,7 @@ function departmentChoices() {
             }); 
         resolve(departments);
      })
-    })
+})
 }
 
 function addToDepTable(title, salary, depId) {
@@ -30,8 +31,8 @@ function addToDepTable(title, salary, depId) {
     db.query(sql, params, (err, result) => {
         if(err) throw err;
         console.log('Role added to roles table.');
-        promptUser;
-    } )
+        promptUser();
+    })
 }
 
 addRole = async () => {
