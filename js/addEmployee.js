@@ -4,6 +4,7 @@ const promise = require('mysql2/promise');
 const { departmentChoices} = require('./addRole');
 const showAllEmployees = require('./employeesFunc');
 const prompts = require('../app');
+const chalk = require('chalk');
 
 function roleChoices() {
     const roles = [];
@@ -47,7 +48,7 @@ function addToEmpTable(first, last, role, manager, department) {
             console.log(err);
             return;
         }
-        console.log(first + ' ' + last + ' added to employees table.');
+        console.log(chalk.green(first + ' ' + last + ' added to employees table.'));
         // showAllEmployees();
         promptUser();
     })

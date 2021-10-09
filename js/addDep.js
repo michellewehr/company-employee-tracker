@@ -2,6 +2,7 @@ const db = require('../db/connection');
 const inquirer = require('inquirer');
 const showAllDep = require('./departmentFunc');
 const prompts = require('../app');
+const chalk = require('chalk');
 
 
 
@@ -20,7 +21,7 @@ function addDepartment() {
                     console.log(err);
                     return;
                 }
-                console.log('Input added to departments table.');
+                console.log(chalk.green('Input added to departments table.'));
                 // showAllDep();
                 promptUser();
             })

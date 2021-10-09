@@ -17,7 +17,6 @@ CREATE TABLE roles (
     PRIMARY KEY (id),
     FOREIGN KEY (department_id) 
         REFERENCES departments(id) 
-        ON DELETE SET NULL
 );
 
 CREATE TABLE managers (

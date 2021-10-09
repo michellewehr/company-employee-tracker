@@ -28,7 +28,7 @@ function editManagerTable(id, name) {
         if(err) {
             console.log(err);
         }
-        console.log('Manager updated!');
+        console.log(chalk.green('Manager updated!'));
         // showAllManagers();
         promptUser();
     })

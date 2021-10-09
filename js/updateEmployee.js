@@ -4,6 +4,7 @@ const { roleChoices } = require('./addEmployee');
 const { departmentChoices } = require('./addRole');
 const showAllEmployees = require('./employeesFunc');
 const prompts = require('../app');
+const chalk = require('chalk');
 
 
 
@@ -33,7 +34,7 @@ function editEmpTable(id, role, dep) {
             console.log(err);
             return;
         }
-        console.log('Employee role updated.');
+        console.log(chalk.green('Employee role updated.'));
         // showAllEmployees();
         promptUser();
     })

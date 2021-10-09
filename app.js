@@ -13,6 +13,7 @@ const { updateManager } = require('./js/updateManager');
 const viewEmpByMan = require('./js/viewEmpByMan');
 const viewEmpByDep = require('./js/viewEmpByDep');
 const { deleteDepartment, deleteRole, deleteEmployee } = require('./js/delete');
+const getDepBudget = require('./js/depBudget');
 const db = require('./db/connection');
 
 function init() {
@@ -44,6 +45,7 @@ module.exports = promptUser = async () => {
                 'Delete department',
                 'Delete role',
                 'Delete employee',
+                'View department budget',
                 'Exit app'
             ]})
 
@@ -86,6 +88,9 @@ module.exports = promptUser = async () => {
             break;
         case 'Delete employee':
             deleteEmployee();
+            break;
+        case 'View department budget':
+            getDepBudget();
             break;
         case 'Exit app':
             console.log(chalk.cyan(`

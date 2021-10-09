@@ -9,6 +9,7 @@ const {employeeChoices} = require('./updateEmployee');
 const showAllEmployees = require('./employeesFunc');
 const init = require('../app');
 const prompts = require('../app');
+const chalk = require('chalk');
 
 
 function deleteFromDepTable(depId) {
@@ -18,7 +19,7 @@ function deleteFromDepTable(depId) {
         if(err) {
             console.log(err)
         }
-        console.log('Department deleted.');
+        console.log(chalk.green('Department deleted.'));
         // showAllDep();
         promptUser();
     })
@@ -31,7 +32,7 @@ function deleteFromRolesTable(roleId) {
         if(err) {
             console.log(err)
         }
-        console.log('Role deleted.');
+        console.log(chalk.green('Role deleted.'));
         // showAllRoles();
         promptUser();
 
@@ -45,7 +46,7 @@ function deleteFromEmployeeTable(employee) {
         if(err) {
             console.log(err)
         }
-        console.log('Employee deleted.');
+        console.log(chalk.green('Employee deleted.'));
         // showAllEmployees();
         promptUser();
 
