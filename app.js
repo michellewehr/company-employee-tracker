@@ -11,6 +11,7 @@ const { addEmployee } = require('./js/addEmployee');
 const updateEmployee = require('./js/updateEmployee');
 const { updateManager } = require('./js/updateManager');
 const viewEmpByMan = require('./js/viewEmpByMan');
+const viewEmpByDep = require('./js/viewEmpByDep');
 const db = require('./db/connection');
 
 db.connect(err => {
@@ -43,6 +44,7 @@ function promptUser() {
                 'Update an employee',
                 'Update employee manager',
                 'View employees by manager',
+                'View employees by department',
                 'Exit app'
             ]})
             .then(data => {
@@ -78,6 +80,9 @@ function handleAction(data) {
             break;
         case 'View employees by manager':
             viewEmpByMan();
+            break;
+        case 'View employees by department':
+            viewEmpByDep();
             break;
         case 'Exit app':
             console.log(chalk.cyan(`
