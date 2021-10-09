@@ -9,6 +9,7 @@ const addDepartment = require('./js/addDep');
 const { addRole } = require('./js/addRole');
 const { addEmployee } = require('./js/addEmployee');
 const updateEmployee = require('./js/updateEmployee');
+const updateManager = require('./js/updateManager');
 const db = require('./db/connection');
 
 db.connect(err => {
@@ -39,7 +40,7 @@ function promptUser() {
                 'Add a role',
                 'Add an employee',
                 'Update an employee',
-                // 'Update employee manager',
+                'Update employee manager',
                 'Exit app'
             ]})
             .then(data => {
@@ -69,6 +70,9 @@ function handleAction(data) {
             break;
         case 'Update an employee':
             updateEmployee();
+            break;
+        case 'Update employee manager':
+            updateManager();
             break;
         case 'Exit app':
             console.log(chalk.cyan(`
