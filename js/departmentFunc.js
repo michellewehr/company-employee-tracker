@@ -11,7 +11,6 @@ function showAllDep() {
         }
         console.table('Departments:', rows);
     });
-    init();
 }
 
 

@@ -66,4 +66,4 @@ updateEmployee = async () => {
 
 
 
-module.exports = updateEmployee;
+module.exports = { updateEmployee, roleChoices, employeeChoices} ;

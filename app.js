@@ -8,10 +8,11 @@ const showAllEmployees = require('./js/employeesFunc');
 const addDepartment = require('./js/addDep');
 const { addRole } = require('./js/addRole');
 const { addEmployee } = require('./js/addEmployee');
-const updateEmployee = require('./js/updateEmployee');
+const { updateEmployee }= require('./js/updateEmployee');
 const { updateManager } = require('./js/updateManager');
 const viewEmpByMan = require('./js/viewEmpByMan');
 const viewEmpByDep = require('./js/viewEmpByDep');
+const { deleteDepartment, deleteRole, deleteEmployee } = require('./js/delete');
 const db = require('./db/connection');
 
 db.connect(err => {
@@ -45,6 +46,9 @@ function promptUser() {
                 'Update employee manager',
                 'View employees by manager',
                 'View employees by department',
+                'Delete department',
+                'Delete role',
+                'Delete employee',
                 'Exit app'
             ]})
             .then(data => {
@@ -84,6 +88,15 @@ function handleAction(data) {
         case 'View employees by department':
             viewEmpByDep();
             break;
+        case 'Delete department':
+            deleteDepartment();
+            break;
+        case 'Delete role':
+            deleteRole();
+            break;
+        case 'Delete employee':
+            deleteEmployee();
+            break;
         case 'Exit app':
             console.log(chalk.cyan(`
             ========================
@@ -94,7 +107,5 @@ function handleAction(data) {
     }
 }
 
-
-// init();
 
 module.exports = init;
