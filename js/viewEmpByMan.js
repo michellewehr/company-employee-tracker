@@ -1,6 +1,8 @@
 const db = require('../db/connection');
 const inquirer = require('inquirer');
 const { managerChoices } = require('./updateManager');
+const prompts = require('../app');
+
 
 function showEmpByMan(manager) {
     const sql = `SELECT * FROM employees WHERE manager_id = ?`;
@@ -10,6 +12,7 @@ function showEmpByMan(manager) {
             console.log(err);
         }
         console.table(res);
+        promptUser();
     })
 }
 

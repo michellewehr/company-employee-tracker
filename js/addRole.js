@@ -5,7 +5,7 @@ const inquirer = require('inquirer');
 // const showAllDep = require('./departmentFunc');
 const promise = require('mysql2/promise');
 const showAllRoles = require('./rolesFunc');
-const promptUser = require('../app');
+const prompts = require('../app');
 
 //Get department choices for the inquirer prompt in addRole function
 function departmentChoices() {
@@ -33,7 +33,7 @@ addToRolesTable = async (title, salary, depId) => {
         if(err) throw err;
         console.log('Role added to roles table.');
         // showAllRoles();
-        promptUser();
+       promptUser();
     })
 }
 

@@ -1,4 +1,6 @@
 const db = require('../db/connection');
+const prompts = require('../app');
+
 
 
 function showAllRoles() {
@@ -16,6 +18,7 @@ function showAllRoles() {
             return;
         }
         console.table('Roles:', rows);
+        promptUser();
     })
 }
 

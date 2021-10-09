@@ -2,6 +2,8 @@ const db = require('../db/connection');
 const inquirer = require('inquirer');
 const { managerChoices } = require('./updateManager');
 const { departmentChoices } = require('./addRole');
+const prompts = require('../app');
+
 
 function showEmpByDep(department) {
     const sql = `SELECT * FROM employees WHERE dep_id = ?`;
@@ -11,6 +13,7 @@ function showEmpByDep(department) {
             console.log(err);
         }
         console.table(res);
+        promptUser();
     })
 }
 

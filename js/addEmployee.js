@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const promise = require('mysql2/promise');
 const { departmentChoices} = require('./addRole');
 const showAllEmployees = require('./employeesFunc');
-const promptUser = require('../app');
+const prompts = require('../app');
 
 function roleChoices() {
     const roles = [];
@@ -49,6 +49,7 @@ function addToEmpTable(first, last, role, manager, department) {
         }
         console.log(first + ' ' + last + ' added to employees table.');
         // showAllEmployees();
+        promptUser();
     })
 }
 

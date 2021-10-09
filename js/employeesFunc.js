@@ -1,4 +1,6 @@
 const db = require('../db/connection');
+const prompts = require('../app');
+
 
 showAllEmployees = async () => {
     const sql = `
@@ -28,6 +30,7 @@ showAllEmployees = async () => {
     db.query(sql, (err, rows) => {
         if(err) throw err;
         console.table('Employees:', rows);
+        promptUser();
     })
 }
 

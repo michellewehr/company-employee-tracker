@@ -3,6 +3,8 @@ const inquirer = require('inquirer');
 const { roleChoices } = require('./addEmployee');
 const { departmentChoices } = require('./addRole');
 const showAllEmployees = require('./employeesFunc');
+const prompts = require('../app');
+
 
 
 // THEN I am prompted to select an employee to update and their new role and this information is updated in the database 
@@ -32,7 +34,8 @@ function editEmpTable(id, role, dep) {
             return;
         }
         console.log('Employee role updated.');
-        showAllEmployees();
+        // showAllEmployees();
+        promptUser();
     })
 }
 

@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 const db = require('../db/connection');
 const showAllManagers = require('./showAllManagers');
+const prompts = require('../app');
+
 
 function managerChoices() {
     const managers = [];
@@ -28,6 +30,7 @@ function editManagerTable(id, name) {
         }
         console.log('Manager updated!');
         // showAllManagers();
+        promptUser();
     })
 }
 

@@ -1,6 +1,8 @@
 const db = require('../db/connection');
 const inquirer = require('inquirer');
 const showAllDep = require('./departmentFunc');
+const prompts = require('../app');
+
 
 
 function addDepartment() {
@@ -20,6 +22,7 @@ function addDepartment() {
                 }
                 console.log('Input added to departments table.');
                 // showAllDep();
+                promptUser();
             })
         })
 }

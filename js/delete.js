@@ -8,6 +8,8 @@ const { roleChoices } = require('./updateEmployee');
 const {employeeChoices} = require('./updateEmployee');
 const showAllEmployees = require('./employeesFunc');
 const init = require('../app');
+const prompts = require('../app');
+
 
 function deleteFromDepTable(depId) {
     const sql = `DELETE FROM departments WHERE id = ?`;
@@ -17,7 +19,8 @@ function deleteFromDepTable(depId) {
             console.log(err)
         }
         console.log('Department deleted.');
-        showAllDep();
+        // showAllDep();
+        promptUser();
     })
 }
 
@@ -29,7 +32,9 @@ function deleteFromRolesTable(roleId) {
             console.log(err)
         }
         console.log('Role deleted.');
-        showAllRoles();
+        // showAllRoles();
+        promptUser();
+
     })
 }
 
@@ -41,7 +46,9 @@ function deleteFromEmployeeTable(employee) {
             console.log(err)
         }
         console.log('Employee deleted.');
-        showAllEmployees();
+        // showAllEmployees();
+        promptUser();
+
     })
 }
 
