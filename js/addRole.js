@@ -56,6 +56,6 @@ addRole = async () => {
     addToDepTable(roleRes.roleTitle, roleRes.roleSalary, depId);
 }
 
-module.exports = addRole;
-module.exports = departmentChoices;
+
+module.exports = { addRole, departmentChoices}; 
 

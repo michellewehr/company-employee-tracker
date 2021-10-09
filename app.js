@@ -5,9 +5,11 @@ const showAllDep = require('./js/departmentFunc');
 const showAllRoles = require('./js/rolesFunc');
 const showAllEmployees = require('./js/employeesFunc');
 const addDepartment = require('./js/addDep');
-const addRole = require('./js/addRole');
-const addEmployee = require('./js/addEmployee')
+const { addRole } = require('./js/addRole');
+const { addEmployee } = require('./js/addEmployee');
+// const addEmployee = require('./js/addEmployee')
 const updateEmployee = require('./js/updateEmployee');
+const db = require('./db/connection');
 
 function init() {
     console.log(`
@@ -57,12 +59,13 @@ function handleAction(data) {
             break;
         case 'Update an employee':
             updateEmployee();
-        // // case 'Exit app':
-        //     console.log(`
-        //     =====================
-        //     ====App Exited=========
-        //     =====================`);
-        //     return;
+        case 'Exit app':
+            console.log(`
+            =====================
+            ====App Exited=========
+            =====================`);
+            db.end();
+            break;
     }
 }
 

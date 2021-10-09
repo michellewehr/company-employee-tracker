@@ -11,7 +11,6 @@ function addDepartment() {
             message: 'Enter the name of the department to add: ',
         })
         .then(response => {
-            console.log(response.addDep);
             const sql = `INSERT INTO departments (dep_name) VALUES (?)`
             const userInput = response.addDep;
             db.query(sql, userInput, (err, result) => {

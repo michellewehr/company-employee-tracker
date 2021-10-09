@@ -1,7 +1,7 @@
 const db = require('../db/connection');
 const inquirer = require('inquirer');
 const promise = require('mysql2/promise');
-const departmentChoices = require('./addRole');
+const { departmentChoices} = require('./addRole');
 const showAllEmployees = require('./employeesFunc');
 
 function roleChoices() {
@@ -47,7 +47,7 @@ function addToEmpTable(first, last, role, manager, department) {
             return;
         }
         console.log(first + ' ' + last + 'added to employees table.');
-        showAllEmployees();
+        // showAllEmployees();
     })
 }
 
@@ -89,5 +89,7 @@ addEmployee = async () => {
     addToEmpTable(employeeRes.empFirst, employeeRes.empLast, roleId, managerId, depId);
 }
 
-module.exports = addEmployee;
-module.exports = roleChoices;
+// module.exports = addEmployee;
+// module.exports = roleChoices;
+
+module.exports = { addEmployee, roleChoices };
