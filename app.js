@@ -15,11 +15,6 @@ const viewEmpByDep = require('./js/viewEmpByDep');
 const { deleteDepartment, deleteRole, deleteEmployee } = require('./js/delete');
 const db = require('./db/connection');
 
-db.connect(err => {
-    if(err) throw err;
-    init();
-})
-
 function init() {
     console.log(chalk.cyan(`
     ==============================
@@ -28,8 +23,8 @@ function init() {
     promptUser();
 }
 
-function promptUser() {
-     inquirer 
+promptUser = async () => {
+    const data = await inquirer 
         .prompt (
         {
             type: 'list',
@@ -51,12 +46,10 @@ function promptUser() {
                 'Delete employee',
                 'Exit app'
             ]})
-            .then(data => {
-                handleAction(data);
-            })
+           handleAction(data);
 }
 
-function handleAction(data) {
+handleAction = async (data) => { 
     switch(data.action) {
         case "View all departments" : 
             showAllDep();
@@ -107,5 +100,5 @@ function handleAction(data) {
     }
 }
 
-
-module.exports = init;
+init();
+module.exports = promptUser;

@@ -1,8 +1,9 @@
 const db = require('../db/connection');
 const inquirer = require('inquirer');
-const showAllRoles = require('./rolesFunc');
-const showAllDep = require('./departmentFunc');
-const promise = require('mysql2/promise');
+const promptUser = require('../app');
+// const showAllRoles = require('./rolesFunc');
+// const showAllDep = require('./departmentFunc');
+// const promise = require('mysql2/promise');
 
 
 
@@ -28,8 +29,8 @@ function addToDepTable(title, salary, depId) {
     const params = [title, salary, depId]
     db.query(sql, params, (err, result) => {
         if(err) throw err;
-        console.log('Role added to roles table.')
-        showAllRoles();
+        console.log('Role added to roles table.');
+        promptUser;
     } )
 }
 
