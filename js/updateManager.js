@@ -50,4 +50,4 @@ updateManager = async () => {
         editManagerTable(manId, managerRes.updatedMan);
 }
 
-module.exports = updateManager;
+module.exports = { updateManager, managerChoices };
