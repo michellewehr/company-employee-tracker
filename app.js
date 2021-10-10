@@ -16,11 +16,21 @@ const { deleteDepartment, deleteRole, deleteEmployee } = require('./js/delete');
 const getDepBudget = require('./js/depBudget');
 const db = require('./db/connection');
 
+db.connect(err => {
+    if (err) {
+        console.log(err)
+    }
+    init();
+});
+
 function init() {
-    console.log(chalk.cyan(`
-    ==============================
-    ======Employee Tracker========
-    ==============================`));
+    console.log(chalk.cyan(` 
+    ███████ ███    ███ ██████  ██       ██████  ██    ██ ███████ ███████     ███    ███  █████  ███    ██  █████   ██████  ███████ ██████  
+    ██      ████  ████ ██   ██ ██      ██    ██  ██  ██  ██      ██          ████  ████ ██   ██ ████   ██ ██   ██ ██       ██      ██   ██ 
+    █████   ██ ████ ██ ██████  ██      ██    ██   ████   █████   █████       ██ ████ ██ ███████ ██ ██  ██ ███████ ██   ███ █████   ██████  
+    ██      ██  ██  ██ ██      ██      ██    ██    ██    ██      ██          ██  ██  ██ ██   ██ ██  ██ ██ ██   ██ ██    ██ ██      ██   ██ 
+    ███████ ██      ██ ██      ███████  ██████     ██    ███████ ███████     ██      ██ ██   ██ ██   ████ ██   ██  ██████  ███████ ██   ██
+    `));
     promptUser();
 }
 
@@ -102,5 +112,5 @@ module.exports = promptUser = async () => {
     }
 }
 
-init();
+
 

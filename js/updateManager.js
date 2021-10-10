@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const db = require('../db/connection');
 const showAllManagers = require('./showAllManagers');
 const prompts = require('../app');
+const chalk = require('chalk');
 
 
 function managerChoices() {

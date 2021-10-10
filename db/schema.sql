@@ -5,7 +5,7 @@ USE company;
 
 CREATE TABLE departments (
     id INTEGER AUTO_INCREMENT, 
-    dep_name VARCHAR(30) NOT NULL,
+    dep_name VARCHAR(30),
     PRIMARY KEY (id) 
 );
 
@@ -17,6 +17,7 @@ CREATE TABLE roles (
     PRIMARY KEY (id),
     FOREIGN KEY (department_id) 
         REFERENCES departments(id) 
+        ON DELETE SET NULL
 );
 
 CREATE TABLE managers (

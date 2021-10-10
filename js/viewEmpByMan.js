@@ -5,7 +5,7 @@ const prompts = require('../app');
 
 
 function showEmpByMan(manager) {
-    const sql = `SELECT * FROM employees WHERE manager_id = ?`;
+    const sql = `SELECT employees.first_name, employees.last_name FROM employees WHERE manager_id = ?`;
     const params = manager;
     db.query(sql, params, (err, res) => {
         if(err) {
