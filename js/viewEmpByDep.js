@@ -4,7 +4,7 @@ const { managerChoices } = require('./updateManager');
 const { departmentChoices } = require('./addRole');
 const prompts = require('../app');
 
-
+//sql commands to display the employee table filtered by department
 function showEmpByDep(department) {
     const sql = `SELECT employees.first_name, employees.last_name FROM employees WHERE dep_id = ?`;
     const params = department;
@@ -17,7 +17,7 @@ function showEmpByDep(department) {
     })
 }
 
-
+//ask users which department they would like to view employees for
 viewEmpByDep = async () => {
     const userChoice = await inquirer.prompt(
         {

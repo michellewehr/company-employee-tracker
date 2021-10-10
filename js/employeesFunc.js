@@ -1,7 +1,7 @@
 const db = require('../db/connection');
 const prompts = require('../app');
 
-
+//show all employees function using sql commands
 showAllEmployees = async () => {
     const sql = `
     SELECT employees.id, employees.first_name, employees.last_name, 

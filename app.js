@@ -16,6 +16,7 @@ const { deleteDepartment, deleteRole, deleteEmployee } = require('./js/delete');
 const getDepBudget = require('./js/depBudget');
 const db = require('./db/connection');
 
+//connect to database
 db.connect(err => {
     if (err) {
         console.log(err)
@@ -23,6 +24,7 @@ db.connect(err => {
     init();
 });
 
+//welcome users with init function
 function init() {
     console.log(chalk.cyan(` 
     ███████ ███    ███ ██████  ██       ██████  ██    ██ ███████ ███████     ███    ███  █████  ███    ██  █████   ██████  ███████ ██████  
@@ -34,6 +36,7 @@ function init() {
     promptUser();
 }
 
+//promptUser function that will be called again after the selected choice functions
 module.exports = promptUser = async () => {
    const data = await inquirer 
         .prompt (

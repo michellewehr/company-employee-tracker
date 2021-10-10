@@ -4,7 +4,7 @@ const db = require('../db/connection');
 const chalk = require('chalk');
 const prompts = require('../app');
 
-
+//calculate the budget using SQL commands
 function calculateBudget(depId) {
     const sql = `SELECT SUM(salary) FROM roles WHERE department_id = ?;`
     const params = depId;
@@ -18,7 +18,7 @@ function calculateBudget(depId) {
         promptUser();
     })
 }
-
+//get department budget prompts users to select the department we will be summing to get department budget
 getDepBudget = async () => {
     const resp = await inquirer
         .prompt(
@@ -29,6 +29,7 @@ getDepBudget = async () => {
                 choices: await departmentChoices()
             }
         )
+    //get department id to correlate with roles table that shows salary for the calculate budget function
     const depId = resp.depSelected.charAt(0);
     calculateBudget(depId);
 }

@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const { managerChoices } = require('./updateManager');
 const prompts = require('../app');
 
-
+//sql commands to display the employee table filtered by manager
 function showEmpByMan(manager) {
     const sql = `SELECT employees.first_name, employees.last_name FROM employees WHERE manager_id = ?`;
     const params = manager;
@@ -16,6 +16,7 @@ function showEmpByMan(manager) {
     })
 }
 
+//get user input on which manager we will be using to filter out employees
 viewEmpByMan = async () => {
     const userInput = await inquirer.prompt(
         {

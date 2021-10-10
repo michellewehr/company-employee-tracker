@@ -1,6 +1,7 @@
 const db = require('../db/connection');
 const updateManager = require('./updateManager');
 
+//show all managers function
 function showAllManagers() {
     const sql = `SELECT * FROM managers`;
    
@@ -11,7 +12,6 @@ function showAllManagers() {
         }
         console.table('Departments:', rows);
     });
-    // init();
 }
 
 module.exports = showAllManagers;

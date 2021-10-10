@@ -11,7 +11,7 @@ const init = require('../app');
 const prompts = require('../app');
 const chalk = require('chalk');
 
-
+//delete from the db table departments
 function deleteFromDepTable(depId) {
     const sql = `DELETE FROM departments WHERE id = ?`;
     const params = depId;
@@ -25,6 +25,7 @@ function deleteFromDepTable(depId) {
     })
 }
 
+//delete from the db table roles
 function deleteFromRolesTable(roleId) {
     const sql = `DELETE FROM roles WHERE id = ?`;
     const params = roleId;
@@ -39,6 +40,7 @@ function deleteFromRolesTable(roleId) {
     })
 }
 
+//delete from the db table employees
 function deleteFromEmployeeTable(employee) {
     const sql = `DELETE FROM employees WHERE id = ?`;
     const params = employee;
@@ -53,6 +55,7 @@ function deleteFromEmployeeTable(employee) {
     })
 }
 
+//delete department that takes user input on which param to use in the deleteFromDepTable function
 deleteDepartment = async () => {
     const data = await inquirer.prompt(
         {
@@ -66,6 +69,7 @@ deleteDepartment = async () => {
     deleteFromDepTable(dep);
 }
 
+//delete role that takes user input on which param to use in the deleteFromRolesTable function
 deleteRole = async() => {
     const data = await inquirer.prompt(
         {
@@ -79,6 +83,7 @@ deleteRole = async() => {
     deleteFromRolesTable(role);
 }
 
+//delete employee that takes user input on which param to use in the deleteFromEmpTable function
 deleteEmployee = async () => {
     const data = await inquirer.prompt(
         {

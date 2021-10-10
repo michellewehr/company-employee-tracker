@@ -7,6 +7,7 @@ const chalk = require('chalk');
 
 
 function addDepartment() {
+    //prompt user for input
     return inquirer
         .prompt({
             type: 'input',
@@ -14,6 +15,7 @@ function addDepartment() {
             message: 'Enter the name of the department to add: ',
         })
         .then(response => {
+            //seed the database with user input
             const sql = `INSERT INTO departments (dep_name) VALUES (?)`
             const userInput = response.addDep;
             db.query(sql, userInput, (err, result) => {
@@ -23,6 +25,7 @@ function addDepartment() {
                 }
                 console.log(chalk.green('Input added to departments table.'));
                 // showAllDep();
+                //promptUser to choose an option once again
                 promptUser();
             })
         })

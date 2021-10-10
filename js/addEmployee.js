@@ -6,6 +6,7 @@ const showAllEmployees = require('./employeesFunc');
 const prompts = require('../app');
 const chalk = require('chalk');
 
+//get role choices for inquirer prompt function
 function roleChoices() {
     const roles = [];
     return new Promise ((resolve, reject) => {
@@ -14,15 +15,18 @@ function roleChoices() {
             if (err) {
                 reject(err);
             }
+            //parse the json object to enable the forEach method to get the role id and role title as options
             let responses = JSON.parse(JSON.stringify(res));
             responses.forEach(element => {
                 roles.push(element.id + '. ' + element.title);
             });
+            //return the new roles array
             resolve(roles);
         })
     })
 }
 
+//get manager array for inquirer prompt choices
 function managerChoices() {
     const managers = [];
     return new Promise ((resolve, reject) => {
@@ -31,15 +35,18 @@ function managerChoices() {
             if(err) {
                 reject(err);
             }
+            //parse the JSON object to work with it
             let responses = JSON.parse(JSON.stringify(res));
             responses.forEach(element => {
                 managers.push(element.id + '. ' + element.manager_name);
             })
+            //return the new managers array 
             resolve(managers);
         })
     })
 }
 
+//update the employees table in the database, taking user input and using it as params
 function addToEmpTable(first, last, role, manager, department) {
     const sql = `INSERT INTO employees (first_name, last_name, role_id, manager_id, dep_id) VALUES (?, ?, ?, ?, ?)`;
     const params = [first, last, role, manager, department] 
@@ -54,6 +61,7 @@ function addToEmpTable(first, last, role, manager, department) {
     })
 }
 
+//add Employee function to prompt user for input to use in addToEmpTable function
 addEmployee = async () => {
     const employeeRes = await inquirer
         .prompt([
@@ -86,9 +94,11 @@ addEmployee = async () => {
             choices: await departmentChoices()
         }
     ])
+    //get the id to seed the table correctly so use charAt index 0 to grab just the id provided in the choices (1. option1)
     const roleId = employeeRes.empRole.charAt(0);
     const managerId = employeeRes.empManager.charAt(0);
     const depId = employeeRes.empDep.charAt(0);
+    //take user input and use it as params in the addToEmpTable function
     addToEmpTable(employeeRes.empFirst, employeeRes.empLast, roleId, managerId, depId);
 }
 

@@ -7,8 +7,7 @@ const prompts = require('../app');
 const chalk = require('chalk');
 
 
-
-// THEN I am prompted to select an employee to update and their new role and this information is updated in the database 
+//get employee array to use as choices in the inquirer function that users need to select an employee
 function employeeChoices() {
     const employees = [];
     return new Promise ((resolve, reject) => {
@@ -26,6 +25,7 @@ function employeeChoices() {
     })
 }
 
+//edit employee table in db
 function editEmpTable(id, role, dep) {
     const sql = `UPDATE employees SET role_id = ?, dep_id = ? WHERE id = ?`
     const params = [role, dep, id];
@@ -40,6 +40,7 @@ function editEmpTable(id, role, dep) {
     })
 }
 
+//prompt user about employee update to be then used in editEmpTable function
 updateEmployee = async () => {
     const roleUpdateRes = await inquirer.prompt([
         {

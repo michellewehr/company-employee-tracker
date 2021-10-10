@@ -2,7 +2,7 @@ const init = require('../app');
 const db = require('../db/connection');
 const prompts = require('../app');
 
-
+//show all department information from departments table in db
 function showAllDep() {
     const sql = `SELECT * FROM departments`;
    
