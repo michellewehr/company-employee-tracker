@@ -16,13 +16,6 @@ const { deleteDepartment, deleteRole, deleteEmployee } = require('./js/delete');
 const getDepBudget = require('./js/depBudget');
 const db = require('./db/connection');
 
-//connect to database
-db.connect(err => {
-    if (err) {
-        console.log(err)
-    }
-    init();
-});
 
 //welcome users with init function
 function init() {
@@ -117,3 +110,4 @@ module.exports = promptUser = async () => {
 
 
 
+init();
